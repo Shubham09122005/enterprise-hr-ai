@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://enterprise-hr-ai-5eva.onrender.com'
 
 // Safely read a field even if backend changes
 // spaces / underscores / capitalization.

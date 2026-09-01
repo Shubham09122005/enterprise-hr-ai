@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://enterprise-hr-ai-5eva.onrender.com'
 
 function RiskAnalysis() {
   const [summary, setSummary] = useState(null)
