@@ -1,0 +1,5 @@
+Integrated Dataset,Rows,Columns,Integration Method
+Department Intelligence,1,18,Department-Level Aggregation
+Occupation Intelligence,1016,17,O*NET-SOC Code Integration
+Employee Features,1470,48,Standalone Workforce Intelligence
+Performance Features,5000,20,Standalone Performance Intelligence

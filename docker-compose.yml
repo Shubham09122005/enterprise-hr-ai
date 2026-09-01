@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    container_name: hr-ai-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATA_PATH=/app/data/raw
+      - PROCESSED_DATA_PATH=/app/data/processed
+      - MODEL_PATH=/app/models
+      - LOG_PATH=/app/logs
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - DEBUG=False
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./app:/app/app
+    networks:
+      - hr-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Streamlit Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    container_name: hr-ai-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_LOGGER_LEVEL=info
+    volumes:
+      - ./frontend:/app/frontend
+      - ./data:/app/data:ro
+    networks:
+      - hr-network
+    depends_on:
+      - api
+    restart: unless-stopped
+
+networks:
+  hr-network:
+    driver: bridge
+
+volumes:
+  api_data:
+  api_models:
+  api_logs:

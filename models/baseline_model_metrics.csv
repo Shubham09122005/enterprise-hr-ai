@@ -1,0 +1,2 @@
+Model,Training Rows,Testing Rows,Features Before Encoding,Precision,Recall,F1 Score,ROC-AUC
+Logistic Regression,1176,294,26,0.6296,0.3617,0.4595,0.8182

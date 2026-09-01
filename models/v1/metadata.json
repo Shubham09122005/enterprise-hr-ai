@@ -1,0 +1,14 @@
+{
+    "model_name": "Attrition Prediction Model",
+    "version": "v1.0",
+    "algorithm": "Logistic Regression",
+    "selection_criterion": "ROC-AUC",
+    "roc_auc": 0.8181583254371608,
+    "precision": 0.6296296296296297,
+    "recall": 0.3617021276595745,
+    "f1_score": 0.4594594594594595,
+    "training_test_split": "80/20",
+    "random_state": 42,
+    "explainability_method": "Logistic Regression Coefficients",
+    "xgboost_used": false
+}

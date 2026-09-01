@@ -1,0 +1,49 @@
+
+================================================================================
+DATA UNDERSTANDING SUMMARY
+================================================================================
+
+1. EMPLOYEE ATTRITION
+   • Size: 1470 employees × 35 columns
+   • Purpose: Feeds attrition ML model
+   • Primary Key: EmployeeID (if exists)
+   • Missing Data: 0 total nulls
+   • Target Balance: Check attrition distribution above
+
+2. HR PERFORMANCE & ENGAGEMENT
+   • Size: 5000 rows × 13 columns
+   • Purpose: Engagement analytics, employee satisfaction tracking
+   • Join Key: Should link to EmployeeID from attrition table
+   • Missing Data: 0 total nulls
+
+3. OCCUPATION DATA
+   • Size: 1016 roles × 3 columns
+   • Purpose: Master reference table for job roles
+   • Primary Key: Likely 'OccupationID' or similar
+   • Missing Data: 0 total nulls
+
+4. ESSENTIAL SKILLS
+   • Size: 18200 rows × 15 columns
+   • Purpose: Maps required skills to job roles
+   • Join Key: OccupationID → occupation_data
+   • Missing Data: 9100 total nulls
+
+5. SOFTWARE SKILLS
+   • Size: 31821 rows × 7 columns
+   • Purpose: Maps software/tools to job roles
+   • Join Key: OccupationID → occupation_data
+   • Missing Data: 0 total nulls
+
+================================================================================
+NEXT STEPS (Day 1 continues):
+================================================================================
+1. Data Validation (02_data_validation.ipynb)
+   → Check for invalid values, ranges, categories
+
+2. Data Cleaning (03_data_cleaning.ipynb)
+   → Handle missing values, fix types, standardize names
+
+3. Data Relationships (04_data_relationships.ipynb)
+   → Confirm join keys, test merges, document relationships
+
+================================================================================
